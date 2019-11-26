@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+.memorycards-container {
+    display:flex;
+}
+
+
+img {
+    height: 100px;
+    width: 100px;
+}
