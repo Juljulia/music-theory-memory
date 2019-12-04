@@ -9,6 +9,7 @@ const memorycards = [
     { id: 'sixteenth', image: "./images/sixteenth.jpg" },
   ]
 
+
 //create function with template literal and the content
 const createCard = (id, image) => {
     return `
@@ -38,12 +39,13 @@ function flipCard() {
     if(stopFlip) return;
     if(this === firstCard) return;
 
-    /*this represents the card that was clicked*/
+    /*this. represents the card that was clicked*/
+
     this.classList.add('flip');
 
     if(!hasFlippedCard){
-        hasFlippedCard= true;
-        firsCard = this;
+        hasFlippedCard = true;
+        firstCard = this;
         return;
     }
 
@@ -52,12 +54,13 @@ function flipCard() {
     checkForMatch();
 }
 
-function checkForMatch(){
+function checkForMatch() {
     if(firstCard.dataset.value === secondCard.dataset.value){
-        disableCards();
+        /* if the cards match the cards flipfunction gets inactivated */
+        disableCards(); 
         return;
     }
-
+    /*if they do not match they will flip back */
     unflipCards();
 }
 
@@ -76,12 +79,42 @@ function unflipCards(){
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500);
+    }, 1500); /*1.5 seconds before cards turn over*/ 
 }
 
+/* resets the values for functions and cards so it can start over from flipCard*/ 
 function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false];
+    [hasFlippedCard, stopFlip] = [false, false];
     [firstCard, secondCard] = [null, null];
+
+    /* if all cards are face up and matched a replay button is created */
+    if(cards.length === memoryboard.querySelectorAll('.flip').length){
+        memoryboard.insertAdjacentHTML('beforeend','<div class="reset"><h3>Yay! You won!</h3><button class="reset-all">Play again</button></div>');
+        document.querySelector('.reset-all').addEventListener('click', resetAll);
+    };
+}
+
+
+//when game won, remove flip, add a click and shuffle
+function resetAll () {
+    memoryboard.removeChild(memoryboard.querySelector('.reset'));
+    setTimeout(() => {
+        cards.forEach(card => {
+            card.classList.remove('flip');
+            card.addEventListener('click', flipCard);
+        });
+        shuffle();
+    }, 300);
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+//if reset, loop through and give the card random number
+function shuffle() {
+    cards.forEach(card=> {
+      let randomPos = Math.floor(Math.random() * 16);
+      card.style.order = randomPos;
+    })
+  };
+  
+  shuffle();
