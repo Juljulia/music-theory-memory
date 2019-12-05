@@ -1,19 +1,25 @@
 * {
     box-sizing: border-box;
+    font-family: 'Boogaloo', cursive;
+    color: black;
 }
 
 body {
     height: 100vh;
-    background-image: url(https://pixabay.com/sv/photos/musikalisk-bakgrund-2842924/);
-    background-repeat: no-repeat;
+    background: blanchedalmond;
+}
+
+.title{
+    text-align: center;
 }
 
 h1 {
-    font-family: 'Boogaloo', cursive;
-    color: black;
-    text-align: center;
     font-size: 5rem;
-    border-radius: 10rem;
+    background: linear-gradient(90deg, rgba(28,42,150,1) 0%, rgba(253,29,29,1) 60%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    
 }
 
 .board { 
@@ -24,7 +30,7 @@ h1 {
     display: flex;
     flex-flow: row wrap;
     /*apply a 3D effect*/
-    perspective: 1000px;
+    perspective: 1000px; 
 }
 
 .memory-card {
@@ -58,19 +64,50 @@ h1 {
 }
  
 .front-face {
-    background: radial-gradient( blue, darkblue, darkblue)
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: linear-gradient(to bottom right, darkblue, blue, darkblue)
 }
 
 .back-face,
 .front-face {
-    width: 130px;
-    height: 130px;
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
-    border-radius: 3px;
+    border-radius: 5px;
     position: absolute;
 }
 
 /*make an effect that you can click the card*/
 .front-face:hover {
     transform: scale(1.05);
+}
+
+/* button */
+.reset {
+    position: absolute;
+    margin: auto;
+    top:0; bottom: 0; left: 0; right:0;
+    z-index: 1;
+    padding: 12px 24px;
+    text-align: center;
+    height: 100px;
+    width: 150px;
+    background: linear-gradient(90deg, rgba(28,42,150,1) 0%, rgba(253,29,29,1) 60%, rgba(252,176,69,1) 100%);
+    font-size: 2rem;
+    border-radius: 15px;
+    outline: none;
+    color:white;
+}
+
+.reset:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(30,41,121,1) 0%, rgba(191,32,32,1) 60%, rgba(226,158,64,1) 100%);
+}
+
+
+.reset:active {
+    background: linear-gradient(90deg, rgba(30,41,121,1) 0%, rgba(191,32,32,1) 60%, rgba(226,158,64,1) 100%);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
