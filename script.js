@@ -89,14 +89,14 @@ function resetBoard() {
 
     /* if all cards are face up and matched a replay button is created */
     if(cards.length === memoryboard.querySelectorAll('.flip').length){
-        memoryboard.insertAdjacentHTML('beforeend','<div class="reset"><h3>Yay! You won!</h3><button class="reset-all">Play again</button></div>');
-        document.querySelector('.reset-all').addEventListener('click', resetAll);
+        memoryboard.insertAdjacentHTML('beforeend','<button class="reset">Play again</button>');
+        document.querySelector('.reset').addEventListener('click', reset);
     };
 }
 
 
-//when game won, remove flip, add a click and shuffle
-function resetAll () {
+/* when game won, remove flip, add a click and shuffle */
+function reset () {
     memoryboard.removeChild(memoryboard.querySelector('.reset'));
     setTimeout(() => {
         cards.forEach(card => {
@@ -109,7 +109,7 @@ function resetAll () {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-//if reset, loop through and give the card random number
+/* if reset, loop through and give the card random number */
 function shuffle() {
     cards.forEach(card=> {
       let randomPos = Math.floor(Math.random() * 16);
