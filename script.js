@@ -1,4 +1,4 @@
-const memorycards = [
+const memoryCards = [
     { id: 'g-clef', image: "./images/g-clef.jpg"},
     { id: 'f-clef', image: "./images/f-clef.jpg" },
     { id: 'quarter', image: "./images/quarter.jpg" },
@@ -20,12 +20,12 @@ const createCard = (id, image) => {
     `
 }
 
-const duplicated = [...memorycards, ...memorycards];
+const duplicated = [...memoryCards, ...memoryCards];
 
-const memoryboard = document.querySelector('.board')
+const memoryBoard = document.querySelector('.board')
 //print the cards on the board
 duplicated.forEach(function(card) {
-    memoryboard.innerHTML += createCard(card.id, card.image)
+    memoryBoard.innerHTML += createCard(card.id, card.image)
 })
 
 
@@ -88,8 +88,8 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 
     /* if all cards are face up and matched a replay/reset button is created */
-    if(cards.length === memoryboard.querySelectorAll('.flip').length){
-        memoryboard.insertAdjacentHTML('beforeend','<button class="reset">Replay</button>');
+    if(cards.length === memoryBoard.querySelectorAll('.flip').length){
+        memoryBoard.insertAdjacentHTML('beforeend','<button class="reset">Replay</button>');
         document.querySelector('.reset').addEventListener('click', reset);
     };
 }
@@ -97,7 +97,7 @@ function resetBoard() {
 
 /* when all cards are face up, remove .resetbutton and flip, add a click and shuffle cards */
 function reset () {
-    memoryboard.removeChild(memoryboard.querySelector('.reset'));
+    memoryBoard.removeChild(memoryBoard.querySelector('.reset'));
     setTimeout(() => {
         cards.forEach(card => {
             card.classList.remove('flip');
