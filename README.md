@@ -1,8 +1,8 @@
 # music-theory-memory
-## Assignment at YRGO to create a memory in HTML, CSS and JavaScript
+Assignment at YRGO to create a memory in HTML, CSS and JavaScript
 
 
-<img src="https://media.giphy.com/media/3owvKl7UjE5JZDuFUI/giphy-downsized-large.gif">
+<img src="https://media.giphy.com/media/3owvKl7UjE5JZDuFUI/giphy-downsized.gif">
 
 
 
