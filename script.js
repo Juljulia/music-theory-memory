@@ -7,7 +7,7 @@ const memorycards = [
     { id: 'eighth', image: "./images/eighth.jpg" },
     { id: 'half', image: "./images/half.jpg" },
     { id: 'sixteenth', image: "./images/sixteenth.jpg" },
-  ]
+]
 
 
 //create function with template literal and the content
@@ -79,7 +79,7 @@ function unflipCards(){
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500); /*1.5 seconds before cards turn over*/ 
+    }, 1500); /*1.5 seconds before flipped cards turn over*/ 
 }
 
 /* resets the values for functions and cards so it can start over from flipCard*/ 
@@ -87,15 +87,15 @@ function resetBoard() {
     [hasFlippedCard, stopFlip] = [false, false];
     [firstCard, secondCard] = [null, null];
 
-    /* if all cards are face up and matched a replay button is created */
+    /* if all cards are face up and matched a replay/reset button is created */
     if(cards.length === memoryboard.querySelectorAll('.flip').length){
-        memoryboard.insertAdjacentHTML('beforeend','<button class="reset">Play again</button>');
+        memoryboard.insertAdjacentHTML('beforeend','<button class="reset">Replay</button>');
         document.querySelector('.reset').addEventListener('click', reset);
     };
 }
 
 
-/* when game won, remove flip, add a click and shuffle */
+/* when all cards are face up, remove .resetbutton and flip, add a click and shuffle cards */
 function reset () {
     memoryboard.removeChild(memoryboard.querySelector('.reset'));
     setTimeout(() => {
@@ -115,6 +115,6 @@ function shuffle() {
       let randomPos = Math.floor(Math.random() * 16);
       card.style.order = randomPos;
     })
-  };
+};
   
-  shuffle();
+shuffle();
