@@ -14,8 +14,8 @@ body {
 }
 
 h1 {
-    font-size: 5rem;
-    background: linear-gradient(90deg, rgba(28,42,150,1) 0%, rgba(253,29,29,1) 60%, rgba(252,176,69,1) 100%);
+    font-size: 4rem;
+    background: linear-gradient(90deg, darkblue 0%, rgba(253,29,29,1) 60%, rgba(252,176,69,1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -37,9 +37,10 @@ h1 {
     height: 130px;
     margin: 10px;
     position: relative;
-    /* transform: scale(1); */ 
+    transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
+    cursor: pointer;
 
 }
 
@@ -95,6 +96,7 @@ h1 {
     border-radius: 15px;
     outline: none;
     color:white;
+    cursor: pointer;
 }
 
 .reset:hover {
