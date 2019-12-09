@@ -19,7 +19,6 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    
 }
 
 .board { 
@@ -55,7 +54,7 @@ h1 {
     transform: rotateY(180deg);
 }
 
-/*back is where the note values are*/
+/*.back-face is where the pictures are */
 .back-face {
     object-fit: contain;
     background-color: #FFFFFF;
@@ -77,12 +76,11 @@ h1 {
     position: absolute;
 }
 
-/*make an effect that you can click the card*/
 .front-face:hover {
     transform: scale(1.05);
 }
 
-/* button */
+/* replay button */
 .reset {
     position: absolute;
     margin: auto;
@@ -104,7 +102,6 @@ h1 {
     cursor: pointer;
     background: linear-gradient(90deg, rgba(30,41,121,1) 0%, rgba(191,32,32,1) 60%, rgba(226,158,64,1) 100%);
 }
-
 
 .reset:active {
     background: linear-gradient(90deg, rgba(30,41,121,1) 0%, rgba(191,32,32,1) 60%, rgba(226,158,64,1) 100%);
