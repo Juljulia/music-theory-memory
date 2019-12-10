@@ -11,7 +11,7 @@ Assignment at YRGO to create a memory in HTML, CSS and JavaScript
 
 ## Testers
 * Emelie Petersson
-* 
+* Maja Alin
 
 ## Code Review 
 by Maja Alin
